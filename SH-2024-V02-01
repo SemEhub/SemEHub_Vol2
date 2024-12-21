@@ -4,9 +4,6 @@
 #Affiliation: TSDL, Department of Electronics and Communication Engineering, Tezpur University
 #This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International  
 
-
-n vs N_d-N_a (In Fig 1)
-
 import numpy as np
 import matplotlib.pyplot as plt
 
