@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Constants
-ni = 1e10  # Intrinsic carrier concentration (Si)
+ni = 1.5e10  # Intrinsic carrier concentration (Si)
 
 # Range of Nd - Na values
 Nd_minus_Na = np.linspace(-1e16, 1e16, 500)  # Range from -1e16 to 1e16 (in cm^-3)
