@@ -1,0 +1,28 @@
+n vs N_a-N_d (In Fig 1)
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+ni = 1e10  # Intrinsic carrier concentration (Si)
+
+# Range of Na - Nd values
+Na_minus_Nd = np.linspace(-1e16, 1e16, 500)  # Range from -1e16 to 1e16 (in cm^-3)
+
+# equation to calculate p
+p = (Na_minus_Nd / 2) + np.sqrt((Na_minus_Nd / 2)**2 + ni**2)
+
+# Plot elements
+plt.figure(figsize=(8, 6))
+plt.plot(Na_minus_Nd, p, label=r'$p = \frac{N_a - N_d}{2} + \sqrt{\left(\frac{N_a - N_d}{2}\right)^2 + n_i^2}$', color='orange')
+
+#Plotting elements
+plt.title("Hole Concentration ($p$) vs $N_a - N_d$", fontsize=14)
+plt.xlabel(r"$N_a - N_d$ (cm$^{-3}$)", fontsize=12)
+plt.ylabel(r"Hole Concentration $p$ (cm$^{-3}$)", fontsize=12)
+plt.axhline(y=ni, color='red', linestyle='--', label=f"Intrinsic Carrier Concentration ($n_i = {ni:.1e}$ cm$^{{-3}}$)")
+plt.axvline(x=0, color='green', linestyle='--', label=r"$N_a = N_d$")
+plt.legend(fontsize=10)
+plt.grid(True, linestyle='--', alpha=0.6)
+plt.tight_layout()
+plt.show()
