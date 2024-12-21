@@ -9,11 +9,11 @@ import matplotlib.pyplot as plt
 
 # Constants
 q = 1.6e-19 
-mu_p = 450e-4  # units in (m^2/V·s)
-mu_n = 1350e-4  # units in (m^2/V·s)
-E_field = 1e4  
+mu_p = 470  # units in (cm^2/V·s)
+mu_n = 1400  # units in (cm^2/V·s)
+E_field = 1e4 
 
-# Carrier concentrations (in m^-3)
+# Carrier concentrations (in cm^-3)
 p_values = np.logspace(14, 20, 100)  
 n_values = np.logspace(14, 20, 100)  
 
@@ -26,8 +26,8 @@ plt.figure(figsize=(12, 6))
 plt.subplot(1, 2, 1)
 plt.loglog(p_values, Jp_drift, label="Holes (p)", color="blue")
 plt.title("Drift Current Density vs Hole Concentration (p)")
-plt.xlabel("Hole Concentration p (m^-3)")
-plt.ylabel("Drift Current Density Jp (A/m^2)")
+plt.xlabel("Hole Concentration p (cm^-3)")
+plt.ylabel("Drift Current Density Jp (A/cm^2)")
 plt.grid(True, which="both", linestyle="--", linewidth=0.5)
 plt.legend()
 
@@ -35,8 +35,8 @@ plt.legend()
 plt.subplot(1, 2, 2)
 plt.loglog(n_values, Jn_drift, label="Electrons (n)", color="red")
 plt.title("Drift Current Density vs Electron Concentration (n)")
-plt.xlabel("Electron Concentration n (m^-3)")
-plt.ylabel("Drift Current Density Jn (A/m^2)")
+plt.xlabel("Electron Concentration n (cm^-3)")
+plt.ylabel("Drift Current Density Jn (A/cm^2)")
 plt.grid(True, which="both", linestyle="--", linewidth=0.5)
 plt.legend()
 plt.tight_layout()
