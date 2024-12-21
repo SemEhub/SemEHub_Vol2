@@ -1,3 +1,9 @@
+#A Python Program to compute the Ionization of n-type materials
+#ID: SH-2024-V02-01
+#Contributors: Soham Chowdhury, Deepjyoti Deb, Rupam Goswami, Santanu Sharma
+#Affiliation: TSDL, Department of Electronics and Communication Engineering, Tezpur University
+#This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International  
+
 n vs N_a-N_d (In Fig 1)
 
 import numpy as np
