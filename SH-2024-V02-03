@@ -10,9 +10,9 @@ import matplotlib.pyplot as plt
 # Constants
 k = 8.617e-5  # Boltzmann constant (eV/K)
 Ec_minus_Ed = 0.05  # Energy difference between conduction band and donor level (eV)
-Nc = 2.8e19   # Effective density of states in conduction band 
-Nd = 1e16     # Donor concentration 
-ni = 1.5e10   # Intrinsic carrier concentration for silicon
+Nc = 2.8e19   # Effective density of states in conduction band (cm-3)
+Nd = 1e16     # Donor concentration (cm-3)
+ni = 1.5e10   # Intrinsic carrier concentration for silicon (cm-3)
 
 # Temperature range
 T = np.linspace(10, 1000, 1000)  
