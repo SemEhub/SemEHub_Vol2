@@ -1,0 +1,28 @@
+n vs N_d-N_a (In Fig 1)
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+ni = 1e10  # Intrinsic carrier concentration (Si)
+
+# Range of Nd - Na values
+Nd_minus_Na = np.linspace(-1e16, 1e16, 500)  # Range from -1e16 to 1e16 (in cm^-3)
+
+# Calculate n using the given equation
+n = (Nd_minus_Na / 2) + np.sqrt((Nd_minus_Na / 2)**2 + ni**2)
+
+# Plotting elements
+plt.figure(figsize=(8, 6))
+plt.plot(Nd_minus_Na, n, label=r'$n = \frac{N_d - N_a}{2} + \sqrt{\left(\frac{N_d - N_a}{2}\right)^2 + n_i^2}$', color='blue')
+
+# plot elements
+plt.title("Electron Concentration ($n$) vs $N_d - N_a$", fontsize=14)
+plt.xlabel(r"$N_d - N_a$ (cm$^{-3}$)", fontsize=12)
+plt.ylabel(r"Electron Concentration $n$ (cm$^{-3}$)", fontsize=12)
+plt.axhline(y=ni, color='red', linestyle='--', label=f"Intrinsic Carrier Concentration ($n_i = {ni:.1e}$ cm$^{{-3}}$)")
+plt.axvline(x=0, color='green', linestyle='--', label=r"$N_d = N_a$")
+plt.legend(fontsize=10)
+plt.grid(True, linestyle='--', alpha=0.6)
+plt.tight_layout()
+plt.show()
