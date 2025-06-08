@@ -1,7 +1,7 @@
-#A Python Program to compute the Carrier Concentration at extremely low and high temperatures
+#A Python Program to compute carrier concentration at extremely low and high temperatures
 #ID: SH-2024-V02-03
-#Contributors: Soham Chowdhury, Deepjyoti Deb, Rupam Goswami, Santanu Sharma
-#Affiliation: TSDL, E-Mobility Lab, Department of Electronics and Communication Engineering, Tezpur University
+#Contributors: Soham Chowdhury[1], Deepjyoti Deb[1], Rupam Goswami[1], Santanu Sharma[2]
+#Affiliation: TSDL[1], E-Mobility Lab[2], Department of Electronics and Communication Engineering, Tezpur University
 #This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International   
 
 import numpy as np
