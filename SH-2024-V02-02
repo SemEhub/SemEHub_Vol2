@@ -1,7 +1,7 @@
-#A Python Program to compute the Ionization of n-type materials
+#A Python Program to compute electron concentration (ionization of dopants) in Silicon
 #ID: SH-2024-V02-02
-#Contributors: Soham Chowdhury, Deepjyoti Deb, Rupam Goswami, Santanu Sharma
-#Affiliation: TSDL, E-Mobility Lab, Department of Electronics and Communication Engineering, Tezpur University
+#Contributors: Soham Chowdhury [1], Deepjyoti Deb [1], Rupam Goswami [1], Santanu Sharma [2]
+#Affiliation: TSDL [1], E-Mobility Lab [2], Department of Electronics and Communication Engineering, Tezpur University
 #This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International  
 
 import numpy as np
@@ -21,7 +21,7 @@ plt.figure(figsize=(8, 6))
 plt.plot(Na_minus_Nd, p, label=r'$p = \frac{N_a - N_d}{2} + \sqrt{\left(\frac{N_a - N_d}{2}\right)^2 + n_i^2}$', color='orange')
 
 #Plotting elements
-plt.title("Hole Concentration ($p$) vs $N_a - N_d$", fontsize=14)
+plt.title("Hole Concentration (linear) ($p$) vs $N_a - N_d$", fontsize=14)
 plt.xlabel(r"$N_a - N_d$ (cm$^{-3}$)", fontsize=12)
 plt.ylabel(r"Hole Concentration $p$ (cm$^{-3}$)", fontsize=12)
 plt.axhline(y=ni, color='red', linestyle='--', label=f"Intrinsic Carrier Concentration ($n_i = {ni:.1e}$ cm$^{{-3}}$)")
