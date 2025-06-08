@@ -1,4 +1,4 @@
-#A Python Program to compute the Ionization of n-type materials
+#A Python Program to compute electron concentration in Silicon
 #ID: SH-2024-V02-01
 #Contributors: Soham Chowdhury, Deepjyoti Deb, Rupam Goswami, Santanu Sharma
 #Affiliation: TSDL, E-Mobility Lab, Department of Electronics and Communication Engineering, Tezpur University
@@ -21,7 +21,7 @@ plt.figure(figsize=(8, 6))
 plt.plot(Nd_minus_Na, n, label=r'$n = \frac{N_d - N_a}{2} + \sqrt{\left(\frac{N_d - N_a}{2}\right)^2 + n_i^2}$', color='blue')
 
 # plot elements
-plt.title("Electron Concentration ($n$) vs $N_d - N_a$", fontsize=14)
+plt.title("Electron Concentration (linear) ($n$) vs $N_d - N_a$", fontsize=14)
 plt.xlabel(r"$N_d - N_a$ (cm$^{-3}$)", fontsize=12)
 plt.ylabel(r"Electron Concentration $n$ (cm$^{-3}$)", fontsize=12)
 plt.axhline(y=ni, color='red', linestyle='--', label=f"Intrinsic Carrier Concentration ($n_i = {ni:.1e}$ cm$^{{-3}}$)")
