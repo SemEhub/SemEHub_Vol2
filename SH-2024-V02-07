@@ -1,0 +1,31 @@
+#A Python Program to Compute Electron Concentration as a Function of the Electron Quasi-Fermi Energy Level 
+#ID: SH-2024-V02-07
+#Contributors: Soham Chowdhury, Deepjyoti Deb, Rupam Goswami, Santanu Sharma
+#Affiliation: TSDL, E-Mobility Lab, Department of Electronics and Communication Engineering, Tezpur University
+#This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International   
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+k = 8.617e-5  # Boltzmann constant (eV/K)
+T = 300            # Temperature (K)
+Nc = 2.8e19  # Effective density of states in the conduction band (cm^-3)
+
+# energy difference range (Ec - EFn) in eV
+Ec_minus_EFn = np.linspace(0, 1, 1000)  # Range of (Ec - EFn) from 0 to 1 eV
+
+# Calculate electron concentration n
+n = Nc * np.exp(-Ec_minus_EFn / (k * T))
+
+# Plot n vs (Ec - EFn)
+plt.figure(figsize=(10, 6))
+plt.plot(Ec_minus_EFn, n, label=r"$n = N_c e^{-(E_c - E_{Fn}) / kT}$", color="blue")
+plt.title("Electron Concentration ($n$) vs. Energy Difference ($E_c - E_{Fn}$)")
+plt.xlabel("Energy Difference ($E_c - E_{Fn}$) [eV] ")
+plt.ylabel("Electron Concentration $n$ ($cm^{-3}$)")
+plt.xscale("log")  # Logarithmic scale for concentration
+plt.grid(True, linestyle="--", linewidth=0.5)
+plt.legend()
+plt.tight_layout()
+plt.show()
