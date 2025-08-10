@@ -1,0 +1,40 @@
+#A Python Program to compute the electric field and energy from potential
+#ID: SH-2024-V02-06
+#Contributors: Soham Chowdhury [1], Deepjyoti Deb [1], Rupam Goswami [1], Santanu Sharma [2]
+#Affiliation: TSDL [1], E-Mobility Lab [2], Department of Electronics and Communication Engineering, Tezpur University
+#This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International  
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+q = 1.6e-19  
+
+# Spatial axis (x) and electric field gradients
+x = np.linspace(0, 1e-6, 1000)                 # Spatial axis (m)
+dEc_dx = 1e6 * np.exp(-x / 1e-7)           # conduction band gradient – exponential (V/m)
+
+# Calculate dV/dx from Ec
+dV_dx_from_Ec = -1 / q * dEc_dx
+
+# Create figure and first axis
+fig, ax1 = plt.subplots(figsize=(10, 6))
+
+# First y-axis (left)
+ax1.set_xlabel("Position x (µm)")
+ax1.set_ylabel(r"$\frac{dE_c}{dx}$ (V/m)", color="blue")
+ax1.plot(x * 1e6, dEc_dx, color="blue", label=r"$\frac{dE_c}{dx}$")
+ax1.tick_params(axis="y", labelcolor="blue")
+
+# Second y-axis (right)
+ax2 = ax1.twinx()
+ax2.set_ylabel(r"$\frac{dV}{dx}$ from $dE_c/dx$ (V/m)", color="red")
+ax2.plot(x * 1e6, dV_dx_from_Ec, color="red", linestyle="--", label=r"$\frac{dV}{dx}$ from $dE_c/dx$")
+ax2.tick_params(axis="y", labelcolor="red")
+
+# Title and grid
+plt.title("Voltage Gradient and Conduction Band Gradient vs. Position")
+fig.tight_layout()
+plt.grid(True, linestyle="--", linewidth=0.5)
+
+plt.show()
