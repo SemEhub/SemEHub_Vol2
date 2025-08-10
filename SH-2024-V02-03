@@ -1,0 +1,40 @@
+#A Python Program to Compute Carrier Concentration at Extremely Low and High Temperatures
+#ID: SH-2024-V02-03
+#Contributors: Soham Chowdhury [1], Deepjyoti Deb [1], Rupam Goswami [1], Santanu Sharma [2]
+#Affiliation: TSDL [1], E-Mobility Lab [2], Department of Electronics and Communication Engineering, Tezpur University
+#This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International  
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Constants
+k = 8.617e-5                    #Boltzman constant in eV/K
+Ec_minus_Ed = 0.05   #Energy gap between conduction band edge and donor level in eV
+Nc = 2.8e19                    #CB effective DoS in cm^-3
+Nv = 1.04e19                 #VB effective DoS in cm^-3
+Nd = 1e16                       #Donor concentration in cm^-3
+Na = 0                              #Acceptor concentration in cm^-3
+Eg = 1.12                        #Bandgap or forbidden gap in eV
+
+# Freeze-out temperature: initial point of freezeout regime
+T_freezeout = (1 / (2 * k)) * ((-Ec_minus_Ed) / (np.log(Nd) - np.log(np.sqrt(Nc * Nd))))
+
+# Ranges
+T1 = np.arange(T_freezeout, 5000 + 1e-9, 0.5)  # +1e-9 to avoid floating-point cutoff
+ni = np.sqrt(Nc * Nv) * np.exp(-Eg / (2 * k * T1))
+n = ((Nd - Na) / 2) + np.sqrt(((Nd - Na) / 2) ** 2 + ni ** 2)
+
+T2 = np.arange(40.0, T_freezeout + 1e-9, 0.5)
+n_freezeout = np.sqrt(Nc * Nd) * np.exp(-Ec_minus_Ed / (2 * k * T2))
+
+# Plot
+plt.figure()
+plt.semilogy(1.0 / T1, n, 'g', label='Intrinsic regime and n = N$_{D}$ regime')
+plt.semilogy(1.0 / T2, n_freezeout, 'b', label='freezeout regime')
+plt.text((1/T1)[-1], n[-1], 'Intrinsic Regime', color='g', fontsize=10, va='bottom')
+mid_index = len(T1) // 10
+plt.text((1/T1)[mid_index], n[mid_index], 'n = N$_{D}$', color='g', fontsize=10, va='bottom')
+plt.xlabel('1/T (1/K)')
+plt.ylabel('Concentration (cm$^{-3}$)')
+plt.legend()
+plt.grid(True, which="both", ls="--")
+plt.show()
